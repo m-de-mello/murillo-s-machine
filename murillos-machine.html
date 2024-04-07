@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murillo's Machine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">Murillo's Machine</h1>
+            <ul class="navbar">
+                <li>Murillo Moreira</li>
+                <li>RA 04241024</li>
+                <li>|</li>
+                <li><a href="https://www.youtube.com/watch?v=xPwg43OV6Ro">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+    <center>
+        <h1>Conversor de Sistemas de Numeração</h1>
+        <br>
+
+        <h3>Insira um Número:</h3>
+        <input class="inputNumero" type="text" id="input_numero" placeholder="Valor">
+        <select id="select_base">
+            <option value="0" selected disabled>Selecione a Base</option>
+            <option value="decimal">Decimal</option>
+            <option value="binario">Binário</option>
+            <option value="octal">Octal</option>
+            <option value="hexadecimal">Hexadecimal</option>
+        </select>
+        <br><br>
+
+        <h3>Converter para:</h3>
+        <input type="checkbox" id="chk_decimal"><label for="chk_decimal">Decimal</label>
+        <input type="checkbox" id="chk_binario"><label for="chk_binario">Binário</label>
+        <input type="checkbox" id="chk_octal"><label for="chk_octal">Octal</label>
+        <input type="checkbox" id="chk_hexadecimal"><label for="chk_hexadecimal">Hexadecimal</label>
+        <br><br>
+
+        <div id="buttons">
+            <button onclick="Converter()">Converter</button>
+            <button onclick="Limpar()">Limpar</button>
+        </div>
+    </center>
+    <div id="conversao"></div>
+</body>
+
+</html>
+
+<script>
+    function Converter() {
+        Limpar();
+        var numero = Number(input_numero.value);
+        var base = select_base.value;
+        var decimal = 0;
+        var binario = 0;
+        var octal = 0;
+        var hexadecimal = 0;
+
+        if (input_numero.value == '') alert('Insira um Valor!'); // Valida se algum Valor foi inserido.
+        else {
+            if (base == 0) alert('Selecione uma Base!'); // Valida se alguma Base foi selecionada.
+            else {
+                if (base == 'decimal') decimal = numero;
+                else if (base == 'binario') decimal = parseInt(numero, 2);
+                else if (base == 'octal') decimal = parseInt(numero, 8);
+                else if (base == 'hexadecimal') decimal = parseInt(input_numero.value, 16);
+
+                if (Number.isInteger(decimal)) {
+                    binario = decimal.toString(2);
+                    octal = decimal.toString(8);
+                    hexadecimal = decimal.toString(16);
+
+                    if ((
+                            chk_decimal.checked == false &&
+                            chk_binario.checked == false &&
+                            chk_octal.checked == false &&
+                            chk_hexadecimal.checked == false
+                        )) // Valida se ao menos uma Checkbox foi selecionada.
+                        alert('Selecione ao menos uma Base para Conversão!');
+
+                    else {
+                        if (chk_decimal.checked) {
+                            conversao.style.display = 'block';
+                            conversao.innerHTML += `<p>Decimal: <b>${decimal}</b></p>`;
+                        }
+                        if (chk_binario.checked) {
+                            conversao.style.display = 'block';
+                            conversao.innerHTML += `<p>Binário: <b>${binario}</b></p>`;
+                        }
+                        if (chk_octal.checked) {
+                            conversao.style.display = 'block';
+                            conversao.innerHTML += `<p>Octal: <b>${octal}</b></p>`;
+                        }
+                        if (chk_hexadecimal.checked) {
+                            conversao.style.display = 'block';
+                            conversao.innerHTML += `<p>Hexadecimal: <b>${hexadecimal.toUpperCase()}</b></p>`;
+                        }
+                    }
+                } else alert('Valor inválido para a Base selecionada!'); // Valida se o Valor inserido é válido, de acordo com a Base selecionada.
+            }
+        }
+    }
+
+    function Limpar() {
+        conversao.style.display = 'none';
+        conversao.innerHTML = '';
+    }
+</script>

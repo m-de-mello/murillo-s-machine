@@ -1,0 +1,170 @@
+* {
+    font-family: monospace;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("https://cdna.artstation.com/p/assets/covers/images/044/373/232/large/harry-harry-16-01.jpg?1639799896");
+    background-size: cover;
+}
+
+.header, .container, .navbar, #buttons {
+    display: flex;
+}
+
+.header {
+    border-bottom: 3px solid #ffb703;
+    justify-content: center;
+    margin: auto;
+    background-color: #001b29;
+}
+
+.container {
+    width: 95%;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.navbar {
+    flex-direction: row;
+    list-style: none;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar li,
+.header .titulo {
+    font-weight: bold;
+}
+
+.navbar li,
+.inputNumero,
+label,
+select,
+button,
+#conversao {
+    font-size: 16px;
+}
+
+.header .titulo {
+    font-size: 24px;
+}
+
+.navbar,
+.titulo,
+h1,
+h3,
+b,
+li,
+a {
+    color: #ffb703;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+center,
+.inputNumero,
+select,
+button,
+#conversao {
+    border-radius: 5px;
+}
+
+center, #conversao {
+    background-color: rgba(0, 27, 41, 0.7);
+}
+
+center {
+    margin: 50px auto;
+    height: fit-content;
+    padding: 50px 5px;
+}
+
+.inputNumero,
+label,
+select,
+button,
+option,
+#conversao {
+    font-weight: bold;
+}
+
+.inputNumero {
+    width: 10%;
+    color: #219ebc;
+    border: #219ebc solid 2px;
+    height: 26px;
+}
+
+.inputNumero::placeholder {
+    color: rgba(0, 27, 41, 1);
+}
+
+option:disabled {
+    color: #ffb703;
+}
+
+label,
+select,
+button,
+#conversao {
+    color: white;
+}
+
+button {
+    width: 90px;
+}
+
+select {
+    width: 20%;
+}
+
+select,
+button {
+    cursor: pointer;
+    background-color: #219ebc;
+    border: none;
+    height: 32px;
+}
+
+button:hover {
+    background-color: #ffb703;
+    color: #001b29;
+}
+
+center,
+#conversao {
+    width: 50%;
+    border: 3px solid #219ebc;
+}
+
+#conversao {
+    padding: 10px 5px;
+    display: none;
+    text-align: left;
+    margin: 30px auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.inputNumero,
+a:hover {
+    color: #219ebc;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+#buttons {
+    width: 220px;
+    justify-content: space-between;
+}
