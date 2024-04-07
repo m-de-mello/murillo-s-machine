@@ -168,3 +168,7 @@ a:hover {
     width: 220px;
     justify-content: space-between;
 }
+
+audio {
+    margin-top: 20px;
+}
